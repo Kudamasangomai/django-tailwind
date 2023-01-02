@@ -1,0 +1,15 @@
+{{ news.totalResults }}
+<ul>
+  {% for a in news %}
+
+  <li>Paper - {{ a.source.name }}</li>
+
+  <li>Author - {{ a.author }}</li>
+  <li>{{ a.title }}</li>
+  <li>{{ a.description }}</li>
+  <li>{{ a.url }}</li>
+  <li>{{ a.publishedAt }}</li>
+  <br /><br />
+
+  {% endfor %}
+</ul>overflow-y-scroll pb-10 hide-scroll-bar

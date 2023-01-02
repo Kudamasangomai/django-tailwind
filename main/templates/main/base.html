@@ -1,0 +1,35 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Django + Tailwind = ❤️</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    {% tailwind_css %}
+  </head>
+
+  <body class="h-full flex flex-col">
+    <nav
+      class="fixed w-full flex flex-wrap items-center justify-between py-3 bg-gray-700"
+    >
+      <div
+        class="container-fluid w-full flex flex-wrap items-center justify-between px-6"
+      >
+        <div class="container-fluid">
+          <a class="text-xl text-white" href="#">Django + Tailwind = ❤️</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="mt-8 flex">
+        <section
+          class="flex-item border-2 border-l-0 border-b-0 border-r-0 border-t-red-900 rounded-t-xl w-full mx-20 mt-10"
+        >
+          {% block content %} {% endblock content %}
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
