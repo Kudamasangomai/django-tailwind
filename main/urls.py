@@ -6,5 +6,6 @@ urlpatterns = [
     
 
     path('',views.home,name="home"),
-    path('nes/search',views.search_news,name="search-news")
+    path('news/search',views.search_news,name="search-news"),
+    path('news/sources',views.sources,name="sources")
 ]

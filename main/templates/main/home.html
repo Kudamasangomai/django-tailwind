@@ -6,7 +6,7 @@
     News Dzese
   </h4>
 </div>
-<div class="flex justify-center my-10">
+<div class="flex justify-center my-5">
   <div class="mb-3 xl:w-96">
     {% csrf_token %}
     <input
@@ -22,8 +22,9 @@
       placeholder="Search here e.g author name /Article"
     />
   </div>
+ 
 </div>
-
+{% include "main/buttons.html" %}
 <div class="flex" id="articles">
 
   {% include 'main/articles.html' %}

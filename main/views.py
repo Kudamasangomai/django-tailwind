@@ -42,3 +42,16 @@ def search_news(request):
 
         }
        return render(request, 'main/articles.html', context)
+
+def sources(request):
+    url =('https://newsapi.org/v2/top-headlines/sources?apiKey=8ba8c66b432e45d691ba3d74b1850436')
+    response = requests.get(url)
+    q = response.json()
+    context = {
+
+        'sources': q['sources']
+
+        }
+    print(q)
+    return render(request, 'main/sources.html', context)
+       
