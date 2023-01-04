@@ -1,2 +1,2 @@
 # django-tailwind
-Django app + Tailwind CSS + htmx
+Django app + Tailwind CSS + htmx + alpinejs
