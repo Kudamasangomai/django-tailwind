@@ -1,43 +1,65 @@
 
+  {% if news %}
+<section class="text-gray-600 body-font">
 
-  {% if  news %}
- 
- <div class="md:flex flex-row flex-wrap mt-2 justify-start mx-14">
-    {% for a in news %}
-    <div
-      class="flex-item mr-2 mb-8 rounded-lg shadow-lg bg-white max-w-xs max-height:50px overflow-auto"
-    >
-      <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img class="rounded-t-lg" src="{{ a.urlToImage }}" alt="Image" />
-      </a>
-      <div class="p-6 border-2 border-b-blue-500 rounded-b-2xl">
-        <h5 class="text-gray-900 text-xl font-medium mb-2">{{ a.title }}</h5>
-        <p class="text-gray-700 text-base mb-4">
-          {{ a.description|truncatewords:50 }}
-        </p>
-
-        <figcaption class="font-medium">
-          <div class="text-sky-500 dark:text-sky-400 mb-2">
-            Source {{ a.source.name }}
-          </div>
-          <div class="text-slate-700 dark:text-slate-500 mb-2">
-            Published @ {{ a.publishedAt }}
-          </div>
-        </figcaption>
-        <button
-          type="button"
-          class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md"
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-wrap -m-4">
+      {% for a in news %}
+      <div class="p-4 md:w-1/3">
+        <div
+          class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
         >
-          <a href="{{ a.url }}"> View </a>
-        </button>
+          <img
+            class="lg:h-48 md:h-36 w-full object-cover object-center"
+            src="{{ a.urlToImage }}"
+            alt="blog"
+          />
+          <div class="p-6">
+            <h2
+              class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
+            >
+              {{ a.source.name }}
+            </h2>
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
+              {{ a.title }}
+            </h1>
+            <p class="leading-relaxed mb-3">
+              {{ a.description|truncatewords:30 }}
+            </p>
+            <div class="flex items-baseline flex-wrap">
+              <a
+                href="{{ a.url }}"
+                class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
+                >View
+              </a>
+              <span
+                class="text-gray-400 mr-2 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+              >
+                 {{ a.author }}
+              </span>
+              <span
+                class="text-gray-400 inline-flex items-center leading-none text-sm"
+              >
+                {{ a.publishedAt }}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
+
+      {% endfor %}
     </div>
-    {% endfor %}
-  </div>
-  {% else %}
-  <div  class="bg-red-400 justify-center text-center w-full p-6 text-lg" role="alert">
-   No Results
+
   
   </div>
 
- {% endif %}
+</section>
+{% else %}
+<div
+  class="bg-red-400 justify-center text-center w-full mt-4 p-6 text-lg"
+  role="alert"
+>
+  No Results Found
+</div>
+
+{% endif %}

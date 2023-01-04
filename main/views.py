@@ -52,6 +52,5 @@ def sources(request):
         'sources': q['sources']
 
         }
-    print(q)
     return render(request, 'main/sources.html', context)
        
