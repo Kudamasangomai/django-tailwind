@@ -1,14 +1,16 @@
 from django.shortcuts import render
 import requests
+from datetime import datetime ,date
 
 # Create your views here.
 
 
 def home(request):
     q = 'apple'
+    l = date.today()
     url = ('https://newsapi.org/v2/everything?'
-           'q={q}&'
-           'from=2022-12-31&'
+          'q={q}&'
+           'from={l}&'
            'sortBy=popularity&'
            'pageSize=6&'
            # 'apiKey=891989b755b444e8961fe285fa8ccfd2'
